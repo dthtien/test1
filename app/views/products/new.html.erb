@@ -1,0 +1,8 @@
+<h1>This is new page</h1>
+<%= form_for @product do |f| %>
+  name: <%= f.text_field :name %>
+  <br>
+  <br>
+  price: <%= f.text_field :price %>
+  <%= f.submit %>
+<% end %>
