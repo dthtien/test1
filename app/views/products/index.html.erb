@@ -2,3 +2,7 @@
 <p>
   Find me in <%= Rails.root.join("app", "views", "products", __FILE__ ) %>
 </p>
+<p>There are <%= pluralize(@products.count,"product") %></p>
+<% @products.each do |product| %>
+  <%= "#{product.name} - #{product.price}" %>$
+<% end %>
