@@ -1,13 +1,4 @@
-<h2> Hello word! </h2>
-<p>
-  Find me in <%= Rails.root.join("app", "views", "products", __FILE__ ) %>
-</p>
 <p>There are <%= pluralize(@products.count,"product") %></p>
 <ul>
-  <% @products.each do |product| %>
-    <li><%= "#{product.name} - #{product.price}" %>
-      sell by
-      <%= link_to product.user.name, user_path(product.user) %>
-    </li>
-  <% end %>
+  <%= render @products %>
 </ul>

@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   resources :users
-  resources :products, only: [:index, :new, :create]
+  resources :products
 end
