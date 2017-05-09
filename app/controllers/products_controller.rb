@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
+    @product = Product.new(price: 9)
   end
 
   def create
