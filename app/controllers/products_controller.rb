@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
+
   def index
     @products = Product.includes(:user).all
     # respond_to do |format|
@@ -24,8 +26,30 @@ class ProductsController < ApplicationController
       end
     end
   end
+
+  def edit 
+  end
+
+  def update
+    if @product.update(product_param)
+      redirect_to @product, notice: "Updated"
+    else
+      flash.now[:alert] = "Can't update"
+      render :edit
+    end
+  end
+
+  def destroy
+    @product.destroy
+    redirect_to products_path, notice: "Deleted"
+  end
+
   private
     def product_param
       params.require(:product).permit(:name, :price)
+    end
+
+    def set_product
+      @product = Product.find(params[:id])
     end
 end
